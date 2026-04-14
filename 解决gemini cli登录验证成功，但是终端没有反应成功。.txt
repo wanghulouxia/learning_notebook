@@ -1,0 +1,11 @@
+解决gemini cli登录验证成功，但是终端没有反应成功。
+终端输入解决网络连接问题
+$env:https_proxy="http://127.0.0.1:7897"
+终端必须输入一个谷歌项目ID，注意保密
+$env:GOOGLE_CLOUD_PROJECT =“gen-lang-client-xxxxx”
+
+
+获取项目 ID
+登录 Google Cloud Console。
+在顶部项目选择器中找到你想要使用的项目。
+复制该项目的 “项目 ID” (Project ID)。
