@@ -79,5 +79,25 @@ NEWS_OVERSAMPLE_MAX = 20    # 从10改为20
 AGENT_ORCHESTRATOR_TIMEOUT_S=1200#600
 
 
+如果采用llm studio部署模型的话，设置如下L
 
 
+# Ollama 本地模型（无需 API Key，推荐）
+#OLLAMA_API_BASE=http://192.168.0.187:11434  #由于docker运行，暂不用http://localhost:11434
+# LITELLM_MODEL=ollama/qwen3:14b
+#LITELLM_MODEL=ollama/qwen3.5:9b
+#OLLAMA_API_BASE=http://192.168.0.187:1234
+LITELLM_MODEL=openai/mirothinker-1.7-mini
+
+
+model_list:
+  # --- siliconflow (OpenAI 兼容，一个 Key 使用多种模型) ---
+  # 这是一个自定义 OpenAI 兼容模型渠道的LLM Studio示例
+  - model_name: openai/mirothinker-1.7-mini
+    litellm_params:
+      model: openai/mirothinker-1.7-mini
+      api_key: "dumpy"
+      api_base: http://192.168.0.187:1234/v1
+
+# 最大并发线程数（建议保持低并发防封禁）
+MAX_WORKERS=1   #降低本地模型使用时间与难度

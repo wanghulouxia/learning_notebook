@@ -50,7 +50,7 @@ server:
 # 在 PowerShell 中生成 32 字节随机密钥
 openssl rand -hex 32
 (base) PS D:\searxng-master\searxng-master> openssl rand -hex 32
-c9b81691f4626730409f866d2a5fd8312b5eb4cab4f723bd5c6d3c7731bf9149  #把这个密码复制到secret_key里
+XXb81691fXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX731bfXXX  #把这个密码复制到secret_key里
 
 3. 快速部署（Docker）
 运行下面的命令，这是windows下的命令：
@@ -77,9 +77,9 @@ curl "http://localhost:12369/search?q=人工智能&format=json"
 curl -UseBasicParsing "http://localhost:12369/search?q=测试&format=json&engines=bing"
 # 测试多个引擎
 curl -UseBasicParsing "http://localhost:12369/search?q=测试&format=json&engines=bing,brave,wikipedia"
-
-
-
+# 比较友好阅读的查询方式
+$response = curl -UseBasicParsing "http://localhost:12369/search?q=人工智能&format=json"
+$response.Content | ConvertFrom-Json | ConvertTo-Json -Depth 2
 
 
 
